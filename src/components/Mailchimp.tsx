@@ -16,7 +16,7 @@ function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T
 export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...flex }) => {
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
-  const [touched, setTouched] = useState<boolean>(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const validateEmail = (email: string): boolean => {
     if (email === "") {
@@ -27,10 +27,7 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
     return emailPattern.test(email);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setEmail(value);
-
+  const handleEmailValidation = (value: string) => {
     if (!validateEmail(value)) {
       setError("Please enter a valid email address.");
     } else {
@@ -38,12 +35,51 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
     }
   };
 
-  const debouncedHandleChange = debounce(handleChange, 2000);
+  const debouncedHandleValidation = debounce((value: string) => handleEmailValidation(value), 1000);
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    if (error) {
+      handleEmailValidation(value);
+    } else {
+      debouncedHandleValidation(value);
+    }
+  };
 
   const handleBlur = () => {
-    setTouched(true);
     if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validateEmail(email) || !email) {
+        setError("Please enter a valid email address.");
+        return;
+    }
+
+    setStatus("loading");
+
+    try {
+        const response = await fetch(mailchimp.action, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+        });
+
+        if (response.ok) {
+            setStatus("success");
+            setEmail("");
+        } else {
+            setStatus("error");
+        }
+    } catch (e) {
+        setStatus("error");
     }
   };
 
@@ -105,80 +141,66 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
         }}
       />
       <Column maxWidth="xs" horizontal="center">
-        <Heading marginBottom="s" variant="display-strong-xs">
-          {newsletter.title}
+        <Heading marginBottom="s" variant="display-strong-xs" align="center">
+          {status === "success" ? "Thank You!" : newsletter.title}
         </Heading>
-        <Text wrap="balance" marginBottom="l" variant="body-default-l" onBackground="neutral-weak">
-          {newsletter.description}
+        <Text wrap="balance" marginBottom="l" variant="body-default-l" onBackground="neutral-weak" align="center">
+          {status === "success" 
+            ? "I've received your email and will be in touch soon." 
+            : newsletter.description}
         </Text>
       </Column>
-      <form
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-        }}
-        action={mailchimp.action}
-        method="post"
-        id="mc-embedded-subscribe-form"
-        name="mc-embedded-subscribe-form"
-      >
-        <Row
-          id="mc_embed_signup_scroll"
-          fillWidth
-          maxWidth={24}
-          s={{ direction: "column" }}
-          gap="8"
-        >
-          <Input
-            formNoValidate
-            id="mce-EMAIL"
-            name="EMAIL"
-            type="email"
-            placeholder="Email"
-            required
-            onChange={(e) => {
-              if (error) {
-                handleChange(e);
-              } else {
-                debouncedHandleChange(e);
-              }
+
+      {status !== "success" && (
+        <form
+            onSubmit={handleSubmit}
+            style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
             }}
-            onBlur={handleBlur}
-            errorMessage={error}
-          />
-          <div style={{ display: "none" }}>
-            <input
-              type="checkbox"
-              readOnly
-              name="group[3492][1]"
-              id="mce-group[3492]-3492-0"
-              value=""
-              checked
-            />
-          </div>
-          <div id="mce-responses" className="clearfalse">
-            <div className="response" id="mce-error-response" style={{ display: "none" }}></div>
-            <div className="response" id="mce-success-response" style={{ display: "none" }}></div>
-          </div>
-          <div aria-hidden="true" style={{ position: "absolute", left: "-5000px" }}>
-            <input
-              type="text"
-              readOnly
-              name="b_c1a5a210340eb6c7bff33b2ba_0462d244aa"
-              tabIndex={-1}
-              value=""
-            />
-          </div>
-          <div className="clear">
-            <Row height="48" vertical="center">
-              <Button id="mc-embedded-subscribe" value="Subscribe" size="m" fillWidth>
-                Subscribe
-              </Button>
+        >
+            <Row
+                fillWidth
+                maxWidth={32}
+                s={{ direction: "column" }}
+                gap="8"
+                vertical="start"
+            >
+                <Row height="48" flex={1}>
+                    <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Email address"
+                        required
+                        value={email}
+                        onChange={handleEmailChange}
+                        onBlur={handleBlur}
+                        errorMessage={error}
+                        style={{ height: '48px' }}
+                    />
+                </Row>
+                <Row height="48" vertical="center" s={{ width: "full" }}>
+                    <Button 
+                        type="submit" 
+                        size="l" 
+                        fillWidth 
+                        loading={status === "loading"}
+                        style={{ minWidth: "120px", height: "48px" }}
+                    >
+                        Connect
+                    </Button>
+                </Row>
             </Row>
-          </div>
-        </Row>
-      </form>
+        </form>
+      )}
+
+      {status === "error" && (
+        <Text variant="body-default-s" onBackground="neutral-weak" marginTop="s">
+            Something went wrong. Please try again.
+        </Text>
+      )}
     </Column>
   );
 };

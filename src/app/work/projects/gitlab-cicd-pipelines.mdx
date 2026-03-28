@@ -1,0 +1,35 @@
+---
+title: "GitLab CI/CD Next.js & Frontend Deployment Pipelines"
+publishedAt: "2025-01-01"
+summary: "Advanced GitLab CI templates demonstrating multi-environment deployment pipelines using PM2 for seamless zero-downtime frontend releases."
+images:
+  - "/projimg/gitlab-cicd-nextjs-frontend-deployment-pipelines.png"
+team:
+  - name: "Yogesh R"
+    role: "DevOps Engineer"
+    avatar: "/images/projects/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/yogeshramu"
+link: "https://github.com/Yogeshramu"
+---
+
+## Overview
+
+Created standardized, reusable GitLab CI/CD pipelines for automating the build, testing, and deployment of complex Next.js and frontend applications across multiple environments. The focus is to orchestrate deployments dynamically into Dev (UAT) and Production environments without manual intervention, utilizing PM2 cluster management to ensure high availability and zero-downtime application updates.
+
+## Key Features
+
+- **Multi-Environment Orchestration**: Segregates configuration rules, SSH keys, and logic paths for `development`, `staging`, and `production` environments respectively dynamically within GitLab CI.
+- **PM2 Process Management**: Commands embedded directly into the CI logic trigger the PM2 daemon to reload application node clusters smoothly rather than aggressively dropping connections during the artifact switch.
+- **Zero-Downtime Releases**: The automated process syncs generated build folders over SSH (via `rsync` or `scp`) onto remote servers entirely invisibly to the live user traffic.
+- **Secure Key Management**: Integrates deeply with GitLab CI/CD environment variables to securely store and inject remote SSH profiles during deployment execution without leaking server coordinates and keys in the codebase.
+
+## Technologies Used
+
+- **GitLab CI/CD (`.gitlab-ci.yml`)**: Continuous integration, automation pipeline, artifacts caching
+- **PM2**: Node.js production process manager with a built-in load balancer
+- **SSH / Bash Scriping**: Fast artifact sync bridging the GitLab pipeline runners to Linux Virtual Machines
+- **Next.js & Frontend Runtimes**: Core payload targets for deployments
+
+## Outcome
+
+Eliminated manual release frictions entirely from the frontend workflow. By adopting PM2 and GitOps practices driven through GitLab CI, application states gracefully handle high-volume updates without impacting user uptime, dramatically speeding up developer velocity towards UAT and Production servers.

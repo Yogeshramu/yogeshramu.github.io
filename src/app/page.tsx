@@ -10,11 +10,14 @@ import {
   Schema,
   Meta,
   Line,
+  Tag,
+  Icon,
 } from "@once-ui-system/core";
 import { home, about, person, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+import React from "react";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -28,7 +31,7 @@ export async function generateMetadata() {
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+    <Column maxWidth="l" gap="xl" paddingY="12" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -42,6 +45,8 @@ export default function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
+
+      {/* Hero Section */}
       <Column fillWidth horizontal="center" gap="m">
         <Column maxWidth="s" horizontal="center" align="center">
           {home.featured.display && (
@@ -66,12 +71,12 @@ export default function Home() {
             </RevealFx>
           )}
           <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
+            <Heading wrap="balance" variant="display-strong-l" align="center">
               {home.headline}
             </Heading>
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl" align="center">
               {home.subline}
             </Text>
           </RevealFx>
@@ -100,9 +105,93 @@ export default function Home() {
           </RevealFx>
         </Column>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
+
+      {/* Expertise / Skills Overview Section */}
+      <RevealFx translateY="12" delay={0.5} fillWidth>
+        <Column fillWidth gap="m" paddingX="l">
+          <Row fillWidth horizontal="between" vertical="center" marginBottom="s">
+            <Text variant="label-strong-m" onBackground="neutral-weak">Core Expertise</Text>
+            <Line background="brand-alpha-strong" flex={1} marginLeft="m" />
+          </Row>
+          <Row fillWidth gap="l" s={{ direction: "column" }}>
+            {about.technical.skills.map((skill, index) => (
+              <Column key={index} flex={1} gap="s">
+                <Text variant="heading-strong-m">{skill.title}</Text>
+                <Row wrap gap="4">
+                  {skill.tags?.slice(0, 4).map((tag, tagIndex) => (
+                    <Tag key={tagIndex} size="s" prefixIcon={tag.icon}>
+                      {tag.name}
+                    </Tag>
+                  ))}
+                </Row>
+              </Column>
+            ))}
+          </Row>
+        </Column>
       </RevealFx>
+
+      {/* Services Section */}
+      {home.services && (
+        <RevealFx translateY="12" delay={0.6} fillWidth>
+          <Column fillWidth gap="xl" paddingX="l" marginTop="64">
+            <Column gap="m">
+              <Text variant="label-strong-m" onBackground="brand-weak" align="center">{home.services.title}</Text>
+              <Heading variant="display-strong-xs" wrap="balance" align="center" marginBottom="l">
+                {home.services.description}
+              </Heading>
+            </Column>
+            <Row fillWidth gap="m" s={{ direction: "column" }} horizontal="center">
+              {home.services.items.map((service, index) => (
+                <Column key={index} flex={1} gap="m" background="surface" padding="l" radius="l" border="neutral-alpha-weak" horizontal="center" align="center">
+                  <Row height="48" vertical="center" horizontal="center" background="brand-alpha-weak" radius="full" width="48">
+                    <Icon name={service.icon} size="m" onBackground="brand-weak" />
+                  </Row>
+                  <Text variant="heading-strong-m" align="center" marginBottom="s">{service.title}</Text>
+                  <Text variant="body-default-m" align="center" onBackground="neutral-weak">
+                    {service.description}
+                  </Text>
+                </Column>
+              ))}
+            </Row>
+          </Column>
+        </RevealFx>
+      )}
+
+
+
+      {/* Professional Journey / Impact Section */}
+      <RevealFx translateY="12" delay={0.8} fillWidth>
+        <Column fillWidth gap="m" paddingX="l" marginTop="xl">
+          <Row fillWidth horizontal="between" vertical="center" marginBottom="m">
+            <Line background="brand-alpha-strong" flex={1} marginRight="m" />
+            <Text variant="label-strong-m" onBackground="neutral-weak">Recent Journey</Text>
+          </Row>
+          <Column fillWidth gap="l">
+            {about.work.experiences.slice(0, 1).map((exp, index) => (
+              <Column key={index} gap="s" background="surface" padding="l" radius="l" border="neutral-alpha-weak">
+                <Row horizontal="between" vertical="center">
+                  <Text variant="heading-strong-l">{exp.company}</Text>
+                  <Text variant="label-default-s" onBackground="neutral-weak">{exp.timeframe}</Text>
+                </Row>
+                <Text variant="body-default-m" onBackground="brand-weak">{exp.role}</Text>
+                <Column gap="4" marginTop="s">
+                  {exp.achievements.slice(0, 1).map((achievement, i) => (
+                    <Row key={i} gap="8" vertical="start">
+                      <Icon name="arrowRight" size="xs" onBackground="brand-weak" style={{ marginTop: '4px' }} />
+                      <Text variant="body-default-m">{achievement}</Text>
+                    </Row>
+                  ))}
+                </Column>
+                <Button href="/about" variant="secondary" size="s">Learn more</Button>
+              </Column>
+            ))}
+          </Column>
+        </Column>
+      </RevealFx>
+
+
+
+      {/* Blog Section */}
       {routes["/blog"] && (
         <Column fillWidth gap="24" marginBottom="l">
           <Row fillWidth paddingRight="64">
@@ -111,7 +200,7 @@ export default function Home() {
           <Row fillWidth gap="24" marginTop="40" s={{ direction: "column" }}>
             <Row flex={1} paddingLeft="l" paddingTop="24">
               <Heading as="h2" variant="display-strong-xs" wrap="balance">
-                Latest from the blog
+                Latest Tech Insights
               </Heading>
             </Row>
             <Row flex={3} paddingX="20">
@@ -123,7 +212,8 @@ export default function Home() {
           </Row>
         </Column>
       )}
-      <Projects range={[2]} />
+
+      {/* Connect / Newsletter */}
       <Mailchimp />
     </Column>
   );

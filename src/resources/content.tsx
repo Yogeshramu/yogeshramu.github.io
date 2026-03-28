@@ -1,49 +1,35 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Blog, Contact, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  firstName: "Yogesh",
+  lastName: "R",
+  name: `Yogesh R`,
+  role: "DevOps & Full-Stack Automation Engineer",
+  avatar: "/images/projects/avatar.jpg",
+  email: "yogeshpmk1@gmail.com",
+  location: "Coimbatore / TN",
+  timeZone: "Asia/Kolkata",
+  languages: ["English", "Tamil"],
 };
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  title: <>Let's Connect</>,
+  description: <>Reach out for collaborations, cloud-native architecture audits, or just to chat about the latest in DevOps automation.</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/yogeshramu",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-    essential: true,
-  },
-  {
-    name: "Instagram",
-    icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.linkedin.com/in/yogeshramu",
     essential: true,
   },
   {
@@ -58,27 +44,53 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  title: `Yogesh R | DevOps Engineer & Automation Specialist`,
+  description: `DevOps Engineer specializing in ECS Fargate, GitLab CI/CD, and Full-Stack automation leveraging n8n, Python, and modern JS frameworks.`,
+  headline: <>Architecting Scalable Cloud Systems & Intelligent Automation</>,
   featured: {
-    display: true,
+    display: false,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <Text variant="label-strong-m">Featured Pipeline</Text>
         <Line background="brand-alpha-strong" vert height="20" />
-        <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+        <Text variant="body-default-xs" onBackground="brand-medium">
+          AWS ECS Fargate Infrastructure
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/aws-ecs-production-deployment",
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      I build <Text as="span" size="xl" weight="strong">robust CI/CD pipelines</Text>, orchestrated <Text as="span" size="xl" weight="strong">Docker environments</Text>, and AI-powered <Text as="span" size="xl" weight="strong">automation platforms</Text> that drive operational excellence at scale.
+    </>
   ),
+  services: {
+    title: "How I help you succeed",
+    description: "I partner with teams to transform their development lifecycle with production-grade automation.",
+    items: [
+      {
+        title: "Infrastructure Audit & Strategy",
+        description: "Analyzing your current cloud footprint to identify cost-saving and security optimization opportunities.",
+        icon: "globe",
+      },
+      {
+        title: "Automated Pipeline Orchestration",
+        description: "Implementing advanced CI/CD that automates building, testing, and security scanning of complex applications.",
+        icon: "rocket",
+      },
+      {
+        title: "Resilient Cloud Deployment",
+        description: "Deploying highly available AWS ECS architectures with zero-downtime updates and secure VPC networking.",
+        icon: "grid",
+      },
+      {
+        title: "Observability & Performance",
+        description: "Setting up deep monitoring and proactive alerting to ensure your production services remain stable $24/7$.",
+        icon: "eye",
+      },
+    ],
+  },
 };
 
 const about: About = {
@@ -102,131 +114,125 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Beyond core infrastructure, I build intelligent end-to-end solutions — from AI-driven agricultural decision platforms (AgriPulse) to autonomous lead generation systems. I bridge the gap between sophisticated software development (Node.js, React, Next.js) and the rigorous stability of production operations (Docker, PM2, Nginx, PostgreSQL).
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
-    title: "Work Experience",
+    display: true,
+    title: "Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Synvolve Intellis Pvt Ltd",
+        timeframe: "03/2025 – Present",
+        role: "DevOps Engineer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Designed and implemented CI/CD pipelines using GitHub Actions, reducing deployment cycle times by 40% through automated testing and ECR integration.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Architected scalable containerized services on AWS ECS (Fargate) using private subnets, security group isolation, and Application Load Balancer (ALB) orchestration.
+          </>,
+          <>
+            Standardized cloud monitoring via AWS CloudWatch and managed complex VPC networking across multiple availability zones for high redundancy.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Active Theory",
+        timeframe: "06/2024 – 11/2024",
+        role: "Web Developer Intern",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Engineered high-performance React-based applications and Shopify stores, focusing on responsive UI designs that increased user retention.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
+            Spearheaded UI/UX design transitions by creating intuitive digital experiences and branding elements that drove better conversion rates.
+          </>
         ],
         images: [],
       },
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Nehru Institute of Engineering and Technology",
+        description: <>B.Tech Computer Science and Business Systems (2021 – 2025) — CGPA: 8.00</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
+        title: "DevOps & Cloud Orchestration",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>AWS (EC2, ECS, ECR, VPC, S3, RDS, IAM), Docker, Kubernetes, Nginx, and PM2 cluster management.</>
         ),
         tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
+          { name: "AWS ECS (Fargate)", icon: "aws" },
+          { name: "Docker & Compose", icon: "docker" },
+          { name: "GitLab/GitHub CI/CD", icon: "github" },
+          { name: "PM2 Management", icon: "rocket" },
+          { name: "Nginx Proxy", icon: "nginx" },
+          { name: "Networking (VPC/ALB)", icon: "globe" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        title: "Next.js",
+        title: "Full-Stack & Automation",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>Next.js, Node.js, Python, n8n Automation, Supabase, and AI/ML model integration (Llama 3).</>
         ),
         tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
+          { name: "Node.js", icon: "nodejs" },
+          { name: "Python", icon: "python" },
+          { name: "n8n Workflows", icon: "rocket" },
+          { name: "Supabase & SQL", icon: "supabase" },
+          { name: "Next.js / React", icon: "nextjs" },
+          { name: "NextAuth & Security", icon: "eye" },
+          { name: "LLM Orchestration", icon: "book" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+        images: [],
+      },
+      {
+        title: "Monitoring & Observability",
+        description: (
+          <>Ensuring production reliability through metrics, logs, and proactive alerting.</>
+        ),
+        tags: [
+          { name: "AWS CloudWatch", icon: "aws" },
+          { name: "Grafana", icon: "grafana" },
+          { name: "Health Check Probes", icon: "rocket" },
+          { name: "Log Management", icon: "document" },
         ],
+        images: [],
+      },
+    ],
+  },
+  certifications: {
+    display: true,
+    title: "Certifications",
+    certifications: [
+      {
+        name: "Cloud Computing",
+        institution: "Gateway Solutions",
+        description: "03/2023 – 04/2023",
+      },
+      {
+        name: "Full Stack Developer",
+        institution: "Techvolt",
+        description: "08/2024 – 10/2024",
+      },
+      {
+        name: "Data Visualization",
+        institution: "IBM",
+        description: "05/2024 – 06/2024",
       },
     ],
   },
@@ -235,70 +241,24 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: "DevOps & Automation Notes",
+  description: `Sharing insights and breakthroughs by ${person.name}`,
 };
 
 const work: Work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  description: `Automated systems and cloud architectures by ${person.name}`,
 };
 
-const gallery: Gallery = {
-  path: "/gallery",
-  label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
-  images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
+const contact: Contact = {
+  path: "/contact",
+  label: "Contact",
+  title: `Contact – ${person.name}`,
+  description: `Get in touch with ${person.name} for collaborations or audits.`,
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+
+
+export { person, social, newsletter, home, about, blog, work, contact };

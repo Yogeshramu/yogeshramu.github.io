@@ -1,0 +1,142 @@
+
+--- Extracting public/Yogesh_R_DevOps_Eng.pdf ---
+
+Yogesh R  DevOps Engineer
++91 8056885792
+ 
+yogeshpmk1@gmail.com
+ 
+linkedIn/yogeshramu
+ 
+github/yogeshramu
+ 
+Profile
+DevOps Engineer with hands-on experience designing and implementing CI/ CD pipelines, containerized deployments, and scalable AWS 
+cloud infrastructure. Skilled in Docker, AWS ECS, GitHub Actions, Linux administration, and cloud networking. Experienced in building 
+secure, automated deployment environments and improving application reliability through modern DevOps practices.
+Professional Experience
+03/2025 – Present DevOps Engineer
+Synvolve Intellis Pvt Ltd 
+•Built and optimized CI/ CD pipelines using GitHub Actions, reducing deployment 
+time by 40%  
+Coimbatore, India
+•Automated Docker image build and deployment workflows for consistent releases  
+•Containerized applications using Docker and deployed services on AWS ECS 
+(Fargate)  
+•Managed AWS infrastructure including EC2, VPC, IAM, and security groups  
+•Monitored application performance and logs using AWS CloudWatch  
+•Troubleshot deployment failures and resolved production issues to ensure system 
+reliability  
+•Configured Nginx as reverse proxy for application deployments  
+•Set up and maintained GitLab Runner, resolving permission-related CI/ CD issues  
+•Managed Docker containers including cleanup, debugging, and performance 
+optimization  
+06/2024 – 11/2024 Web Developer Intern
+Active Theory 
+•Managed the design and development of React based web applications and 
+Shopify e-commerce stores, delivering high-performance, responsive websites 
+that drive conversions.
+Coimbatore, India
+•Demonstrated expertise in UI/UX design, improving user experience and 
+branding through visually appealing and intuitive web interfaces.
+Skills
+Cloud & Infrastructure: AWS (EC2, ECS, ECR, RDS, S3, VPC, IAM, ALB, CloudWatch)
+DevOps Tools: Docker, Git, GitHub Actions, GitLab CI/CD, Kubernetes Monitoring Tools: AWS CloudWatch, Grafana
+Programming & Scripting Languages: TypeScript, Python, SQL, Shell Scripting
+Education
+2021 – 2025 B.Tech Computer Science and Business Systems
+Nehru Institute of Engineering and Technology
+Achieved CGPA 7.44
+Coimbatore, India
+Certifications
+03/2023 – 04/2023 Cloud Computing
+Gateway Solutions
+Coimbatore, India
+05/2024 – 06/2024 Data Visualization
+IBM
+Coimbatore, India
+08/2024 – 10/2024 Full Stack Developer
+Techvolt
+Coimbatore, India
+Projects
+AWS ECS Production Deployment Architecture
+Technologies: AWS ECS (Fargate), Docker, Amazon ECR, AWS RDS, Application Load Balancer, VPC, GitLab CI/CD
+•Designed multi-AZ VPC architecture with public and private subnets for high availability
+•Deployed containerized applications on ECS Fargate with images stored in Amazon ECR
+•Automated CI/ CD pipeline using GitLab CI/ CD for Docker build, push, and deployment
+•Configured Application Load Balancer for traffic routing and scalability  
+CI/CD Pipeline Automation System
+Technologies: GitHub Actions, Docker, AWS, Linux
+•Built end-to-end CI/ CD pipelines for automated build, test, and deployment
+•Integrated Docker image creation and deployment into CI/ CD workflows
+•Reduced manual deployment effort and improved release consistency
+Y o g e s h  R y o g e s h p m k 1 @ g m a i l . c o m
+
+--- Extracting public/Yogesh_R_Full_stack.pdf ---
+
+Yogesh R  Full Stack Developer
+yogeshpmk1@gmail.com
+ 
++91 8056885792
+ 
+Coimbatore, India
+ 
+PROFILE
+Full Stack Developer with experience in building scalable web applications using Next.js, Node.js, and 
+PostgreSQL. Skilled in developing responsive user interfaces, designing REST APIs, and integrating frontend and 
+backend systems. Experienced in deploying production-ready applications on AWS with a focus on performance, 
+security, and scalability.
+PROFESSIONAL EXPERIENCE
+03/2025 – Present
+Coimbatore, India
+Full Stack Developer
+Synvolve Intellis Pvt Ltd
+•Developed full-stack web applications using Next.js for frontend and Node.js for 
+backend
+•Designed and implemented REST APIs for handling application data and business logic
+•Integrated PostgreSQL database with backend services for efficient data management
+•Built responsive and high-performance user interfaces using modern frontend 
+practices
+•Deployed applications on AWS using Docker and managed production environments
+•Configured Nginx for routing and handling client requests in production
+•Implemented CI/ CD pipelines to automate build and deployment processes
+•Monitored and improved application performance and reliability
+06/2024 – 11/2024
+Coimbatore, India
+Web Developer Intern
+Active Theory
+•Developed responsive web applications using React.js and Next.js
+•Built and maintained Shopify e-commerce websites
+•Integrated frontend applications with backend APIs
+•Improved UI/ UX design and optimized performance
+EDUCATION
+2021 – 2025
+Coimbatore, India
+B.Tech Computer Science and Business Systems
+Nehru Institute of Engineering and Technology
+Achieved CGPA 7.44
+SKILLS
+Frontend: Next.js, React.js, TypeScript, JavaScript, HTML5, CSS3
+Backend: Node.js, Express.js, REST API Development Database: PostgreSQL, SQL
+Cloud & Deployment: AWS (EC2, ECS, S3, RDS), Docker, Nginx
+Tools: Git, GitHub, GitHub Actions, Linux
+PROJECTS
+01/2026 – 03/2026 Fiviora.com (Live Production Project) 
+Technologies: Next.js, Node.js, PostgreSQL, AWS, Docker
+•Developed a full-stack production application using Next.js and Node.js
+•Designed REST APIs and handled backend logic and database integration
+•Implemented PostgreSQL for structured data storage
+•Deployed application on AWS with Docker for scalability and reliability
+01/2026 – 02/2026 TheHAD Digital (Live Production Project) 
+Technologies: Next.js, Node.js, AWS, Nginx
+•Developed and deployed a responsive business website using Next.js
+•Integrated backend services and handled deployment on AWS
+•Configured Nginx for efficient request handling and routing
+CERTIFICATIONS
+Cloud Computing
+Coimbatore, India
+Data Visualization
+Coimbatore, India
+Full Stack Developer
+Coimbatore, India
+Y o g e s h  R y o g e s h p m k 1 @ g m a i l . c o m

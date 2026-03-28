@@ -1,0 +1,36 @@
+---
+title: "Dockerized Full Stack Deployment Setup"
+publishedAt: "2025-05-01"
+summary: "Production-style Docker deployment setup with Nginx reverse proxy, Docker Compose orchestration, health checks, and operational scripts."
+images:
+  - "/projimg/dockerized-fullstack-deployment-setup.webp"
+team:
+  - name: "Yogesh R"
+    role: "DevOps Engineer"
+    avatar: "/images/projects/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/yogeshramu"
+link: "https://github.com/Yogeshramu/dockerized-fullstack-deployment.git"
+---
+
+## Overview
+
+Demonstrated a production-style Docker deployment setup for a full-stack web application. It uses Docker for containerization, Docker Compose for service orchestration, and Nginx as a reverse proxy in front of the application container. The repository includes operational scripts for deployment, restart, log inspection, cleanup, and health verification.
+
+## Key Features
+
+- **Application Containerization**: Modular Docker image builds targeting small container sizes using NodeJS base images.
+- **Nginx Reverse Proxy**: Forwards HTTP traffic on port 80 to the internal container application running on port 3000, isolating the backend execution environment.
+- **Environment Management**: Secret management and environment variable templating separate from version control.
+- **Operational Bash Scripts**: Shell scripts for automating deployment (`deploy.sh`), container restarts (`restart.sh`), logs inspection (`logs.sh`), and health validation (`healthcheck.sh`).
+- **Health Validation**: Automated endpoints configured to assure boot success and real-time stability of running services.
+
+## Technologies Used
+
+- **Docker & Docker Compose**: Service containerization and stack orchestration
+- **Nginx**: Serving as a reverse proxy
+- **Node.js / Express.js**: Application backend runtime
+- **Linux Shell Scripting**: Essential Bash scripting for continuous operational maintenance
+
+## Outcome
+
+Achieved a scalable orchestration environment mimicking day-to-day DevOps cycles. By strictly managing internal networking, hiding environment variables, and scripting routine deployment/restart workflows, the setup proves fundamental knowledge in reliable container deployment architectures and security isolation.

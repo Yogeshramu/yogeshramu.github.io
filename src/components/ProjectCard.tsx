@@ -8,6 +8,7 @@ import {
   Heading,
   SmartLink,
   Text,
+  Media,
 } from "@once-ui-system/core";
 
 interface ProjectCardProps {
@@ -33,9 +34,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <Column fillWidth gap="m">
       <Carousel
+        fill
+        aspectRatio="16 / 9"
         sizes="(max-width: 960px) 100vw, 960px"
         items={images.map((image) => ({
-          slide: image,
+          slide: <Media objectFit="contain" alt={title} src={image} aspectRatio="16 / 9" />,
           alt: title,
         }))}
       />

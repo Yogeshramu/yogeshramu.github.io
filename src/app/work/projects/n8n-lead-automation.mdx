@@ -1,0 +1,37 @@
+---
+title: "N8N Lead Automation Platform"
+publishedAt: "2025-03-01"
+summary: "Production-grade lead automation system with FastAPI backend, React frontend, and robust N8N/Supabase integrations running on Docker."
+images:
+  - "/projimg/n8n-lead-automation-platform.png"
+team:
+  - name: "Yogesh R"
+    role: "DevOps Engineer"
+    avatar: "/images/projects/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/yogeshramu"
+link: "https://github.com/Yogeshramu/n8n-lead-automation-.git"
+---
+
+## Overview
+
+Architected a comprehensive platform that handles autonomous lead generation workflows through N8N triggers, a Python FastAPI backend, and a React interface. Designed the system prioritizing operational readiness, utilizing multi-stage Docker builds to compress the production images and securing cross-origin requests.
+
+## Key Features
+
+- **Automated Workflows**: Implemented autonomous lead generation invoking N8N via REST webhooks.
+- **Docker Production Strategy**: Configured multi-stage Docker builds to deploy smaller, secure application images inside `docker-compose.prod.yml`.
+- **FastAPI Backend Structure**: Engineered asynchronous integrations with Supabase leveraging Pydantic validations.
+- **Data Export Pipelines**: Built automated Excel generation downloads to fetch securely persisted data.
+- **Reverse Proxy Deployment**: Packaged production deployment with static Vite-React builds served efficiently by Nginx rather than development servers.
+
+## Technologies Used
+
+- **N8N Automation Framework**: Event triggers and logic automation
+- **Docker / Compose**: Container orchestration for development and production lifecycles
+- **Python / FastAPI**: High-performance backend routing
+- **Supabase**: Backend-as-a-service database layer
+- **React 19 / Vite**: Frontend bundling and interface rendering
+
+## Outcome
+
+Delivered a highly robust, low-maintenance full-stack solution entirely packaged inside Compose containers. This architecture effectively bridges external automation toolings (N8N) with internal data structures efficiently, resulting in an end-to-end cloud-native system easily adaptable to CI/CD pipelines.

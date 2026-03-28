@@ -1,0 +1,36 @@
+---
+title: "DevOps Todo App Backend Pipeline"
+publishedAt: "2025-04-15"
+summary: "A TypeScript/Express.js REST API demonstrating DevOps practices: Docker containerization, PostgreSQL database integration, and CI/CD pipelines."
+images:
+  - "/projimg/devops-todo-app-backend-pipeline.jpg"
+team:
+  - name: "Yogesh R"
+    role: "DevOps Engineer"
+    avatar: "/images/projects/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/yogeshramu"
+link: "https://github.com/Yogeshramu/devops_todo_app_backend.git"
+---
+
+## Overview
+
+Designed a foundational backend API to serve as a practical learning project for core DevOps and cloud-native architecture principles. The core focus is not just application logic but surrounding the application with production-ready DevOps processes such as Dockerization, database management, and CI pipelines.
+
+## Key Features
+
+- **Docker Containerization**: Packaging the Node.js REST API with minimal Alpine Linux images.
+- **PostgreSQL Database Setup**: Integrating a relational database mapped through a dedicated `docker-compose` configuration.
+- **Application Security**: Strict configuration of CORS constraints and `.env` environment isolation.
+- **Automated CI/CD Workflows**: Using GitHub Actions to execute test suites and trigger validation builds automatically upon code push or pull requests.
+- **API Structuring**: Implementation of a Healthcheck API router endpoint serving as a Kubernetes-ready probe to monitor continuous availability.
+
+## Technologies Used
+
+- **TypeScript / Express.js**: Primary application logic tier
+- **PostgreSQL**: Relational database storage layer
+- **Docker Compose**: Running database and app tiers locally
+- **GitHub Actions**: Continuous integration workflows
+
+## Outcome
+
+Established an end-to-end local deployment environment capturing all aspects of modern cloud-ready design. By utilizing stateless architecture, environment-injected configurations, and container-first development patterns, the backend successfully mirrors standard industry patterns for scalable microservice development.
